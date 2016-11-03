@@ -1,0 +1,27 @@
+<div class="col-sm-4">
+	<div class="control-group">
+		<label class="control-label">A&ntilde;o Contributivo</label>
+		<input type="number" class="form-control" name="year" data-ng-model="vm.form.year" />
+	</div>
+</div>
+<div class="col-sm-2">
+	<div class="control-group">
+		<label class="control-label">Cantidad</label>
+		<input type="number" class="form-control" name="quantity" data-ng-model="vm.form.quantity" value="50">
+	</div>
+</div>			
+<div class="col-sm-6">
+	<div class="control-group">
+		<label class="control-label">
+			<span>&Iacute;ndices</span>
+			<span data-ng-show="vm.fields.loading"><i class="fa fa-cog fa-spin"></i> {{vm.form.loadingMsg}}</span>
+		</label>
+		<select 
+			class="form-control" 
+			name="index" 
+			data-ng-model="vm.form.index" 
+			data-ng-disabled="vm.indexes.loading"	
+			data-ng-options="i.key as i.value for i in vm.indexes.list">
+		</select>
+	</div>
+</div>

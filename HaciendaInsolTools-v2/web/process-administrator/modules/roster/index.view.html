@@ -1,0 +1,35 @@
+<form name="rosterForm" class="form-horizontal" data-ng-submit="vm.searchRosters()" novalidate>
+
+		<div class="row">
+			<div class="col-sm-12">				
+				<div class="control-group">
+					<label class="control-label">
+						<span>Rosters </span>
+						<span data-ng-show="vm.rosters.loading"><i class="fa fa-cog fa-spin"></i> {{vm.form.loadingMsg}}</span>
+					</label>
+					<select 
+						data-ng-model="vm.form.roster" 
+						class="form-control" 
+						name="roster" 
+						data-ng-disabled="vm.rosters.loading"
+						data-ng-model="vm.form.roster"
+						data-ng-change="vm.loadAdditional(vm.form.roster)"
+						data-ng-options="r.key as r.value for r in vm.rosters.list">
+					</select>
+				</div>
+				<div data-ng-show="vm.rosters.error">
+					<span class="text-danger">Lo sentimos, no se pudo obtener informaci&oacute;n en estos momentos. Si desea intentarlo de nuevo m&aacute;s tarde.</span> 
+				</div>
+			</div>
+		</div>
+		
+		<div class="row" data-ng-include="'modules/_shared/layout/queries.form.html'"></div>
+		<div class="row" data-ng-include="'modules/_shared/layout/filters.form.html'"></div>
+		<div class="form-actions" data-ng-include="'modules/_shared/layout/actions.form.html'"></div>
+		
+</form>
+
+<div data-ng-show="vm.elements.loading" class="text-center"><i class="fa fa-cog fa-spin fa-2x"></i></div>
+
+<div data-ng-include="'modules/_shared/layout/table.view.html'"></div>
+<div data-ng-include="'modules/_shared/layout/modal.view.html'"></div>

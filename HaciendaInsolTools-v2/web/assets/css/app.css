@@ -1,0 +1,100 @@
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+body{
+	background-color: #f7f7f7;	
+}
+
+.navbar-brand-color {
+	background-color: #C7A446;
+	border-color:#C7A446;
+	color: #fff;
+}
+
+.navbar-default .navbar-brand-inverse, .navbar-default .navbar-brand-inverse:hover{
+	color: #fff;
+}
+
+.panel-main, .main{
+	margin-top:75px;
+}
+
+.panel-tabs{
+	border-top:none;
+	margin-top:65px;
+}
+
+.panel-tabs .nav-tabs{
+	margin:-56px -16px 30px;
+}
+
+
+.form-actions{
+	text-align: right;
+	padding-top: 30px;
+}
+
+.table-paginated{
+	
+} 
+
+.table-sorted th{
+	cursor:pointer;
+}
+
+.panel-btn{
+	text-align: center;
+	display: block;
+	text-decoration: none;	
+}
+.panel-btn:hover{
+	text-decoration: none;
+}
+
+.panel-floated{
+	position:absolute; 
+	z-index:2; 
+	right:36px; 
+	-o-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+	-moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26) ;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.separate-20-0{
+	margin-top:20px;
+	margin-bottom: 0;
+}
+
+.separate-20-20{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.separate-0-20{
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+
+.table-col-2 td, .table-col-2 th{
+	width: 50%;
+	word-break:break-all;
+}
+
+.table-col-4 td, .table-col-4 th{
+	width: 25%;
+	word-break: break-all;
+}
+
+.btn-attached-20{
+	margin-top:-21px;
+	margin-bottom: 20px;
+}
+.btn-xs-pinned{
+	margin-top:-42px;
+	margin-bottom: 20px;
+}
+
+.close {
+	position: absolute;
+	right:20px;
+	top:20px;
+}

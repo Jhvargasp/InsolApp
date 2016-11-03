@@ -1,0 +1,110 @@
+<div data-si-table data-ng-if="vm.elements.success">
+	
+	<hr/>
+	
+	<div class="row">
+		<div class="col-sm-6">
+			<h4>
+				<strong>Resultados de la Busqueda:</strong> 
+				{{vm.elements.list.length}} tarea<span data-ng-show="vm.elements.list.length > 1">s</span>
+				<span data-ng-show="_filter" class="text-muted">({{ (vm.elements.list | filter : _filter).length }} filtradas)</span>
+			</h4>
+		</div>
+		<div class="col-sm-6">
+			<div class="input-group pull-right">
+		    	<div class="input-group-addon">Filtrar Resultados:</div>
+		    	<input type="text" class="form-control" data-ng-model="_filter">
+		    	<div class="input-group-addon">
+		    		<a 
+			    		class="fa fa-close text-muted" 
+			    		href="" 
+			    		data-ng-class="{ 'text-danger' : _filter }"
+			    		data-ng-click="_filter = ''">
+			    	</a>
+		    	</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="text-center" style="height:79px;">
+		<si-table-pagination first-text="Primer Record" last-text="Ultimo Record" previous-text="<" next-text=">" limit="10" />
+	</div>
+	
+	<div class="">
+		<table class="table table-striped table-paginated table-bordered table-sorted">
+			<thead>
+				<tr>
+					<th style="width:1%;"><i class="fa fa-lock text-primary"></i></th>
+					<th style="width:1%;">
+						<input type="checkbox" data-ng-click="vm.elements.addAllToUpdate(_filter)" data-ng-checked="vm.elements.allUpdate" />
+					</th>
+					<th style="width:6%;" data-sort-by="taxYear">A&ntilde;o</th>
+					<th style="width:10%;" data-sort-by="Formato">Formato</th>
+					<th style="width:14%;" data-sort-by="NumeroSerie">Numero de Serie</th>
+					<th style="width:17%;" data-sort-by="queue">Queue</th>
+					<th style="width:10%;" data-sort-by="user">Usuario</th>
+					<th style="width:18%;" data-sort-by="F_StartTime">Fecha de Comienzo</th>
+					<th style="width:9%;" data-sort-by="Prorroga">Prorroga</th>
+					<th style="width:9%;" data-sort-by="Sensitiva">Sensitiva</th>
+					<th style="width:7%;" data-sort-by="PEL">PEL</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr data-si-sortable data-ng-repeat="e in vm.elements.list | filter : _filter">
+					<td>
+						<i class="fa fa-lock text-danger" data-ng-show="e.participant != ''"></i>
+						<i class="fa fa-unlock text-success" data-ng-show="e.participant == ''"></i>
+					</td>
+					<td>
+						<input type="checkbox" data-ng-click="vm.elements.addToUpdateList(e)" data-ng-checked="e.checked" />
+					</td>
+					<td>{{ e.taxYear }}</td>
+					<td>{{ e.Formato }}</td>
+					<td>{{ e.NumeroSerie }}</td>
+					<td>{{ e.queue }}</td>
+					<td>{{ e.user }}</td>
+					<td>{{ e.F_StartTime }}</td>
+					<td>{{ e.Prorroga }}</td>
+					<td>{{ e.Sensitiva }}</td>
+					<td>
+						<span data-ng-if="e.PEL == 'false'">No</span>
+						<span data-ng-if="e.PEL != 'false'">Si</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="text-center" style="height:79px;">
+		<si-table-pagination first-text="Primer Record" last-text="Ultimo Record" previous-text="<" next-text=">" limit="10" />
+	</div>
+	
+	<div class="text-center seaparate-20-20">
+		<button 
+			class="btn btn-success" 
+			data-ng-disabled="vm.elements.updateList.length == 0" 
+			data-ng-click="vm.modal.open(e)"
+			data-toggle="modal" 
+			data-target="#detailsModal" >
+			<i class="fa fa-pencil"></i> 
+			<span>
+				&nbsp;
+				<span>Manejar</span> 
+				<span data-ng-show="vm.elements.updateList.length > 1"> Tareas ({{vm.elements.updateList.length}})</span>
+				<span data-ng-show="vm.elements.updateList.length == 1"> Tarea</span>
+			</span>
+		</button>
+	</div>
+</div>
+
+
+<div data-ng-if="vm.elements.error" class="alert alert-danger separate-20-0">
+	<div class="row">
+		<div class="col-sm-1 text-center"><i class="fa fa-exclamation-circle fa-4x"></i></div>
+		<div class="col-sm-11">
+			<h4>Lo sentimos</h4>
+			<p>
+				No se pudo obtener informaci&oacute;n en estos momentos. Por favor intentelo m&aacute;s tarde.
+			</p>
+		</div>
+	</div>
+</div>

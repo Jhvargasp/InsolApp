@@ -1,0 +1,18 @@
+<div class="control-group">
+	<label class="control-label" for="{{name}}">
+		<span>{{label}} </span>
+		<i data-ng-show="loading" class="fa fa-cog fa-spin"></i>
+	</label>
+	<select 
+		data-ng-model="model" 
+		class="form-control" 
+		name="{{name}}" 
+		id="{{name}}"
+		data-ng-disabled="loading"
+		data-ng-change="change"
+		data-ng-options="l.key as l.value for l in list">
+	</select>
+	<div data-ng-show="error">
+		<span class="text-danger">{{errorMsg}}</span> 
+	</div>
+</div>

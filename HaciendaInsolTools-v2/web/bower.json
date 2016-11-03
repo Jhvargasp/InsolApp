@@ -1,0 +1,27 @@
+{
+  "name": "console",
+  "authors": [
+    "vehler <lennick.velez@gmail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "angular": "^1.5.7",
+    "angular-cookies": "^1.5.7",
+    "angular-sanitize": "^1.5.7",
+    "oclazyload": "ocLazyLoad#^1.0.9",
+    "angular-ui-router": "ui-router#^0.3.1",
+    "angular-animate": "^1.5.7",
+    "angular-growl": "^0.4.0"
+  }
+}

@@ -1,0 +1,37 @@
+<form name="inboxForm" class="form-horizontal" data-ng-submit="vm.searchQueues()">
+
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="control-group">
+					<label class="control-label-top" for="userQueuename">
+						<span>Bandeja del Usuario </span> 
+						<span  data-ng-show="vm.fields.loading"><i class="fa fa-cog fa-spin"></i> {{vm.form.loadingMsg}}</span>
+					</label>				
+					<div 
+						id="user"
+						data-angucomplete-alt
+		             	data-placeholder="Buscar Usuarios"
+		             	data-selected-object="vm.form.user"
+		             	data-ng-disabled="vm.users.loading"
+		             	data-local-data="vm.users.list"
+		              	data-search-fields="value"
+              			data-title-field="value"
+              			data-minlength="1"
+              			data-match-class="highlight"
+		              	data-input-class="form-control">
+		           	</div>
+		           		
+				</div>
+			</div>
+		</div>
+
+		<div class="row" data-ng-include="'modules/_shared/layout/queries.form.html'"></div>
+		<div class="row" data-ng-include="'modules/_shared/layout/filters.form.html'"></div>
+		<div class="form-actions" data-ng-include="'modules/_shared/layout/actions.form.html'"></div>
+		
+</form>
+
+<div data-ng-show="vm.elements.loading" class="text-center"><i class="fa fa-cog fa-spin fa-2x"></i></div>
+
+<div data-ng-include="'modules/_shared/layout/table.view.html'"></div>
+<div data-ng-include="'modules/_shared/layout/modal.view.html'"></div>

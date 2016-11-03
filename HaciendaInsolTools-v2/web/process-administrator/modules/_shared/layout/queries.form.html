@@ -1,0 +1,28 @@
+<div class="col-sm-4">
+	<div class="control-group">
+		<label class="control-label">
+			<span>Campo de Criteria </span>
+			<span data-ng-show="vm.fields.loading"><i class="fa fa-cog fa-spin"></i> {{vm.form.loadingMsg}}</span>
+		</label>
+		<select 
+			data-ng-model="vm.form.field" 
+			name="field" 
+			class="form-control" 
+			data-ng-disabled="vm.fields.loading"
+			data-ng-options="f.key as f.value for f in vm.fields.list"></select>
+	</div>
+</div>
+<div class="col-sm-3">
+	<div class="control-group">
+		<label class="control-label" for="FieldFilterOperator">Operador</label>
+		<select data-ng-model="vm.form.operator" name="operator" class="form-control" data-ng-options="o.key as o.label for o in vm.form.operatorsList">
+
+		</select>
+	</div>
+</div>
+<div class="col-sm-5">
+	<div class="control-group">
+		<label class="control-label" for="FieldFilterText">Criteria</label>
+		<input data-ng-model="vm.form.fieldValue" type="text" class="form-control" name="fieldValue" />
+	</div>
+</div>
